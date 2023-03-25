@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		body{
+			background-image: url(img/kayu.png);
+		}
+		.container{
+			width: 800px;
+			height: 1200px;
+			background: #ddd;
+			margin: 20px auto;
+			box-sizing: border-box;
+			border: 3px solid black;
+		}
+		h1{
+			text-align: center;
+			font-size: 40px;
+		}
+		h3{
+			margin-left: 20px;
+		}
+		textarea{  width: 750px;
+			height: 370px;
+			margin-left: 20px;
+			overflow: scroll;
+			background-color: white;
+			border: 3px solid black;
+		}
+.gambar{
+			width: 750px;
+			height: 370px;
+			margin-left: 20px;
+		}
+.overlay{ position:fixed;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		top:0;
+		left:0;
+		background:rgba(0, 0, 0, 0); 
+		z-index: 9999;
+		transition: 1s;
+		text-align: center;
+		padding: 100px 0;}
+
+.overlay:target {width: auto;
+		   height: auto;
+		   right:0;
+		   bottom:0;
+		   background:rgba(0, 0, 0, .8);}
+
+.overlay img { max-height:100%; 
+		box-shadow: 2px 2px 7px rgba(0, 0, 0,.5);}
+
+.overlay:target img { 
+	width: auto;
+	height: auto;
+	animation:slidedownfade 1s; }
+
+.overlay .close { position:absolute; 
+				top: 50px;
+				left: 50%;
+				margin-left: -20px;
+				color: white;
+				text-decoration: none;
+				background-color: black;
+				border: 1px solid white;
+				line-height: 14px;
+				padding: 5px;
+				opacity: 0;}
+
+.overlay:target .close{ animation:slidedownfade 0.5s 0.5s forwards; }
+
+button{
+	width: 100px;
+	height: 50px;
+	border-radius: 20px;
+	margin-top: 50px;
+	margin-left: 350px;
+}
+
+button:hover{
+	background-color: green;
+	transition: 0.3s;
+}
+
+@keyframes slidedownfade {
+	0% { opacity:0;
+		margin-top:-20px; }
+
+	100% { opacity:1;
+		margin-top:0;
+		}}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+  textarea {
+    width: 100%;
+    height: 250px;
+    margin: 20px 0;
+  }
+  .gambar {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+	<h1>Pembuatan contoh surat sederhana! (Minimal 5 inputan)</h1>
+	<h4>Nama   : Irvan al rasyid</h4>
+	<h4>Npm    : 10822130</h4>
+	<h4>Kelas  : LJT-22/204</h4>
+	<h4>Matkul : LAB pemrograman Berorientasi Object /Java</h4>
+	<h3>Program</h3>
+	<textarea id="text"></textarea>
+	<h3>ouput<br>klik gambar untuk full screen</h3>
+	
+	<a href="#gambar-1">
+	<img class="gambar"src="img/output1.png"alt="output1">
+	<span></span>
+	</a>
+	<div class="overlay"id="gambar-1">
+	<a href="#" class="close">x close</a>
+	<img src="img/output1.png"alt="output1">
+    
+	<a href="#gambar-2">
+	<img class="gambar"src="img/output2.png"alt="output2">
+	<span></span>
+	</a>
+	<div class="overlay"id="gambar-2">
+	<a href="#" class="close">x close</a>
+	<img src="img/output2.png"alt="output2">
+
+	<script>
+		document.getElementById("text").innerHTML = 
+		`import java.util.Scanner;
+
+public class Main{
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Contoh Aplikasi pembuatan surat");
+        System.out.println("===============================");
+
+        System.out.print("Nama pengirim             = ");
+        String namaPengirim = input.nextLine();
+
+        System.out.print("Alamat pengirim           = ");
+        String alamatPengirim = input.nextLine();
+
+        System.out.print("Tempat pengirim           = ");
+        String tempat = input.nextLine();
+        
+        System.out.print("Tempat Acara berlangsung  = ");
+        String tempatAcaraBerlangsung = input.nextLine();
+
+        System.out.print("Tanggal Surat             = ");
+        String tanggal = input.nextLine();
+        
+        System.out.print("Waktu acara               = ");
+        String waktu = input.nextLine();
+
+        System.out.print("Nama penerima             = ");
+        String namaPenerima = input.nextLine();
+
+        System.out.print("Alamat penerima           = ");
+        String alamatPenerima = input.nextLine();
+
+        System.out.print("Perihal                   = ");
+        String perihal = input.nextLine();
+
+        
+        System.out.printf(
+            "=====================================\n"+
+            "\n"+
+            tempat +"," + tanggal +"\n"+
+            "\n"+
+            namaPengirim+"\n"+
+            alamatPengirim+"\n"+
+            "\n"+
+            "Kepada Yth : "+"\n"+
+            namaPenerima+"\n"+
+            alamatPenerima+"\n"+
+            "\n"+
+            "Perihal = "+perihal+"\n"+
+            "Dengan hormat,"+"\n"+
+            "kami mengundang Bapak/ibu untuk menghadiri " + perihal + " :"+"\n"+
+            "\n"+
+            "Tanggal/hari = " + tanggal+"\n"+
+            "Waktu        = " + waktu+"\n"+
+            "Tempat       = " + tempatAcaraBerlangsung+"\n"+
+            "\n"+
+            "Kami berharap Bapak/ibu dapat hadir tepat waktu. Terima kasih perhatian \ndan kerjasamanya "+"\n"+
+            "\n"+
+            "Hormat Saya"+"\n"+
+            "\n"+
+            "\n"+
+            "\n"+
+            namaPengirim);
+
+        input.close();
+    }
+}`;	
+	</script>
+</body>
+</html>
